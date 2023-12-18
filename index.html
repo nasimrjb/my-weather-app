@@ -4,9 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Weather App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ephesis&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body class="main">
     <header>
       <form action="">
         <input
@@ -20,14 +26,15 @@
       </form>
     </header>
     <main>
-      <h1>Tehran</h1>
-      <div>
+      <div class="weather">
+        <h1>Tehran</h1>
+        <div class="temperature">⛅11°C</div>
+        </div>
         <p>
           Monday 17:32, scattered clouds <br />
           Humidity: 32%, Wind: 5.14km/h
         </p>
-      </div>
-      <div>⛅11°C</div>
+    </div>
     </main>
     <footer>
       Built by
