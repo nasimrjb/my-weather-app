@@ -28,15 +28,15 @@
   color: white;
 }
 h1 {
-  display: flex;
-  justify-content: space-between;
   max-width: 300px;
+  border: none;
+  margin: 0;
+  font-size: 50px;
 }
 .temperature {
-  display: flex;
-  justify-content: right;
   font-size: 50px;
   font-weight: 700;
+  padding: 0px;
 }
 .weather {
   padding: 20px;
@@ -45,13 +45,25 @@ h1 {
 }
 p {
   text-align: left;
-  padding: 20px;
   color: #a9a6b3;
 }
 
-span {
+.pink {
   color: #e96990;
 }
 footer {
   color: #a9a6b3;
+  margin-top: 30px;
+}
+.degree {
+  font-size: 20px;
+  line-height: 24px;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.temp {
+  font-size: larger;
+}
+.icon {
+  margin-bottom: 0;
 }
