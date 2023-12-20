@@ -14,7 +14,7 @@ function search(event) {
 }
 
 function weather(response) {
-  console.log(response);
+  // console.log(response);
   let tempElement = document.querySelector(".temp");
   tempElement.innerHTML = Math.round(response.data.temperature.current);
   let cityElement = document.querySelector("#city");
@@ -25,6 +25,8 @@ function weather(response) {
   humidityElement.innerHTML = response.data.temperature.humidity;
   let windElement = document.querySelector("#wind");
   windElement.innerHTML = response.data.wind.speed;
+  let iconElement = document.querySelector(".icon");
+  iconElement.src = response.data.condition.icon_url;
 }
 
 let days = [
