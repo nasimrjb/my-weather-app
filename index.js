@@ -1,7 +1,24 @@
-let key = "ab343bcof0t2020acfeb0bf65d0c4516";
-let city = "Tehran";
-let api = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${key}`;
+let searchFormElement = document.querySelector("#search-form");
+searchFormElement.addEventListener("submit", search);
 
-search(s);
+function search(event) {
+  event.preventDefault();
+  let searchInputElement = document.querySelector("#search-input");
+  console.log(searchInputElement);
+  let cityElement = document.querySelector("#city");
+  cityElement.innerHTML = searchInputElement.value;
+  let key = "ab343bcof0t2020acfeb0bf65d0c4516";
+  let city = searchInputElement.value;
+  let api = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${key}`;
+  axios.get(api).then(weather);
+}
 
-axios.get(api).then(search);
+function weather(response) {
+  console.log(response);
+  let tempElement = document.querySelector(".temp");
+  tempElement.innerHTML = Math.round(response.data.temperature.current);
+  let cityElement = document.querySelector("#city");
+  cityElement.innerHTML = response.data.city;
+  let conditionElement = document.querySelector("#condition");
+  conditionElement.innerHTML = response.data.condition.description;
+}
