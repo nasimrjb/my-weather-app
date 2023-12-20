@@ -21,4 +21,33 @@ function weather(response) {
   cityElement.innerHTML = response.data.city;
   let conditionElement = document.querySelector("#condition");
   conditionElement.innerHTML = response.data.condition.description;
+  let humidityElement = document.querySelector("#humidity");
+  humidityElement.innerHTML = response.data.temperature.humidity;
+  let windElement = document.querySelector("#wind");
+  windElement.innerHTML = response.data.wind.speed;
 }
+
+let days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+
+let now = new Date();
+let minutes = now.getMinutes();
+let hours = now.getHours();
+if (minutes < 10) {
+  minutes = `0${minutes}`;
+}
+
+if (hours < 10) {
+  hours = `0${hours}`;
+}
+
+let day = days[now.getDay()];
+let dateTimeElement = document.querySelector("#dateTime");
+dateTimeElement.innerHTML = `${day}, ${hours}:${minutes}`;
