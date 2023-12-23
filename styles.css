@@ -81,3 +81,14 @@ footer {
   justify-content: space-between;
   margin: 30px;
 }
+.weather-forecast-date {
+  color: #a9a6c2;
+}
+.max-temp {
+  color: #e85081;
+  font-weight: 600;
+}
+.min-temp {
+  color: #e85081;
+  opacity: 0.8;
+}
