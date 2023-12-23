@@ -75,3 +75,9 @@ footer {
   max-height: 50px;
   margin-top: 20px;
 }
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px;
+}
