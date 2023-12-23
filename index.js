@@ -72,3 +72,10 @@ function displayForecast() {
 }
 
 displayForecast();
+
+
+fucntion getForecast(city)  {
+  let apiKey = 'ab343bcof0t2020acfeb0bf65d0c4516'
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`
+
+}
