@@ -81,6 +81,10 @@ footer {
   justify-content: space-between;
   margin: 30px;
 }
+.forecast {
+  display: flex;
+  justify-content: space-between;
+}
 .weather-forecast-date {
   color: #a9a6c2;
 }

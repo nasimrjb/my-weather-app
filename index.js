@@ -53,3 +53,22 @@ if (hours < 10) {
 let day = days[now.getDay()];
 let dateTimeElement = document.querySelector("#dateTime");
 dateTimeElement.innerHTML = `${day}, ${hours}:${minutes}`;
+
+function displayForecast() {
+  let forecastHTML = "";
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="row"><div class="col-1">
+                <span class="weather-forecast-date">${day}</span> <br>
+                <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png" width="50" />
+                <div class="weather-forecast-temperature"><span class="max-temp">19º</span> <span class="min-temp">12º</span></div>
+            </div>
+        </div>`;
+  });
+  let forecast = document.querySelector("#forecast");
+  forecast.innerHTML = forecastHTML;
+}
+
+displayForecast();
