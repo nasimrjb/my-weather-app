@@ -10,7 +10,7 @@
   display: block;
   margin: 0 auto;
   border: black;
-  max-width: 600px;
+  max-width: 550px;
   text-align: center;
   font-family: raleway;
   margin: 45px auto;
@@ -79,11 +79,13 @@ footer {
 .row {
   display: flex;
   justify-content: space-between;
-  margin: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 .forecast {
   display: flex;
   justify-content: space-between;
+  size: 50px;
 }
 .weather-forecast-date {
   color: #a9a6c2;

@@ -27,6 +27,8 @@ function weather(response) {
   windElement.innerHTML = response.data.wind.speed;
   let iconElement = document.querySelector(".icon");
   iconElement.src = response.data.condition.icon_url;
+
+  getForecast(response.data.city);
 }
 
 let days = [
@@ -54,28 +56,38 @@ let day = days[now.getDay()];
 let dateTimeElement = document.querySelector("#dateTime");
 dateTimeElement.innerHTML = `${day}, ${hours}:${minutes}`;
 
-function displayForecast() {
+function displayForecast(response) {
   let forecastHTML = "";
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="row"><div class="col-1">
-                <span class="weather-forecast-date">${day}</span> <br>
-                <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png" width="50" />
-                <div class="weather-forecast-temperature"><span class="max-temp">19º</span> <span class="min-temp">12º</span></div>
+
+  response.data.daily.forEach(function (day, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="row"><div class="col-1">
+                <span class="weather-forecast-date">${formatDay(
+                  day.time
+                )}</span> <br>
+                <img src="${day.condition.icon_url}" width="50" />
+                <div class="weather-forecast-temperature"><span class="max-temp">${Math.round(
+                  day.temperature.maximum
+                )}º</span> <span class="min-temp">${Math.round(
+          day.temperature.minimum
+        )}º</span></div>
             </div>
         </div>`;
+    }
   });
   let forecast = document.querySelector("#forecast");
   forecast.innerHTML = forecastHTML;
 }
+function getForecast(city) {
+  let apiKey = "ab343bcof0t2020acfeb0bf65d0c4516";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios(apiUrl).then(displayForecast);
+}
 
-displayForecast();
-
-
-fucntion getForecast(city)  {
-  let apiKey = 'ab343bcof0t2020acfeb0bf65d0c4516'
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`
-
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[date.getDay()];
 }
